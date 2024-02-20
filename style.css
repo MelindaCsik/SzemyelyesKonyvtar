@@ -1,17 +1,36 @@
+body {
+    background-color: #FFF8E5;
+}
+
+h2{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
 ul {
     list-style-type: none;
-    margin: 0;
-    padding: 14px 16px;
+    margin-right: 20px;
   }
 
   li {
     display: inline;
     float: right;
+    margin-left: 20px;
   }
 
   li a {
     display: block;
+    background-color: white;
+    border-style: groove;
     color: black;
     text-align: center;
     text-decoration: none;
+  }
+
+  li.alahuzas{
+    border-bottom: 1px solid;
+  }
+
+  form {
+    
   }
