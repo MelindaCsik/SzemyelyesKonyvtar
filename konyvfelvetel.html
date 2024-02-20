@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="bootstrap.min.js"></script>
     <title>Személyes könyvtár</title>
 </head>
+
 <body>
     <h2>Személyes könyvtár</h2>
     <h3>Új könyv felvétele</h3>
@@ -22,7 +24,44 @@
             <label for="cim">Könyv címe:</label>
             <input type="text" class="form-control" id="cim">
         </div>
-        <button type="submit" class="btn btn-primary">Felvétel</button>
+        <button type="submit" id="btn" class="btn btn-primary">Felvétel</button>
     </form> <br><br>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore-compat.js"></script>
+    <script type="module">
+        const konyvCim = document.getElementById("cim")
+        const konyvSzerzo = document.getElementById("szerzo")
+        const addBtn = document.getElementById("btn")
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBsSUz2j01jtbm_FYMXS_yaBQlJHpyd-es",
+            authDomain: "szemelyes-konytar.firebaseapp.com",
+            projectId: "szemelyes-konytar",
+            storageBucket: "szemelyes-konytar.appspot.com",
+            messagingSenderId: "234326662256",
+            appId: "1:234326662256:web:6176df568f659265ca68b5"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+        addBtn.addEventListener('click', function (e) {
+            e.preventDefault()
+            db.collection("konyvek").add({
+                cim: konyvCim.value,
+                szerzo: konyvSzerzo.value
+            })
+            .then((docRef) =>{
+                alert('Sikeres feltöltés!');
+            })
+
+        })
+    </script>
 </body>
+
 </html>
