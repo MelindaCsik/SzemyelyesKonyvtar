@@ -10,6 +10,7 @@ h2{
 ul {
     list-style-type: none;
     margin-right: 20px;
+    margin-bottom: 70px;
   }
 
   li {
@@ -21,7 +22,7 @@ ul {
   li a {
     display: block;
     background-color: white;
-    border-style: groove;
+    border-style: solid;
     color: black;
     text-align: center;
     text-decoration: none;
@@ -31,6 +32,18 @@ ul {
     border-bottom: 1px solid;
   }
 
-  form {
-    
+  .flex-container {
+    display: flex;
+    align-items: stretch;
+    background-color: #FFF8E5;
+  }
+  
+  .flex-container > div {
+    background-color: gray;
+    color: #FFF8E5;
+    padding-top: 50px;
+    margin: 40px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 25px;
   }
